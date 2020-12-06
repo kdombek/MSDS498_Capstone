@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prodigy
+  labels:
+    app: prodigyApp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: prodigy
+  template:
+    metadata:
+      labels:
+        app: prodigy
+    spec:
+      containers:
+      - name: prodigy
+        image: myprodigyacr787.azurecr.io/prodigy:v1
+        ports:
+        - containerPort: 80
